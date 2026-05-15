@@ -1,0 +1,164 @@
+{
+  "info": {
+    "_postman_id": "8fa64292-6b32-407e-8e2e-ec3a2455f1ac",
+    "name": "Auth",
+    "description": "| Method | Endpoint | Description |\n| --- | --- | --- |\n| POST | /api/auth/register | Register User |\n| POST | /api/auth/login | Login User |\n| GET | /api/auth/profile | Get User Profile |\n\n```\nAuthorization: Bearer your_jwt_token\n\n ```\n\n## Register User\n\n### POST\n\n```\n/api/auth/register\n\n ```\n\n### Request Body\n\n```\n{  \"username\": \"Himanshu\",  \"email\": \"himanshu@gmail.com\",  \"password\": \"123456\"}\n\n ```\n\n### Success Response\n\n```\n{  \"success\": true,  \"message\": \"User registered successfully\"}\n\n ```\n\n---\n\n# Login User\n\n### POST\n\n```\n/api/auth/login\n\n ```\n\n### Request Body\n\n```\n{  \"email\": \"himanshu@gmail.com\",  \"password\": \"123456\"}\n\n ```\n\n### Success Response\n\n```\n{  \"success\": true,  \"message\": \"Login successful\",  \"token\": \"jwt_token_here\"}\n\n ```\n\n# Get User Profile\n\n### GET\n\n```\n/api/auth/profile\n\n ```\n\n### Headers\n\n```\nAuthorization: Bearer jwt_token_here\n\n ```\n\n### Success Response\n\n```\n{  \"success\": true,  \"data\": {    \"_id\": \"6825abc123\",    \"username\": \"Himanshu\",    \"email\": \"himanshu@gmail.com\"  }}\n\n ```\n\n---\n\n# ❌ Error Responses\n\n## Invalid Token\n\n```\n{  \"success\": false,  \"message\": \"Not authorized, token failed\"}\n\n ```\n\n---\n\n## No Token\n\n```\n{  \"success\": false,  \"message\": \"No token provided\"}\n\n ```",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24786971",
+    "_collection_link": "https://go.postman.co/collection/24786971-8fa64292-6b32-407e-8e2e-ec3a2455f1ac?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "userSignUp",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"Himanshu\",\n  \"email\": \"himanshu@gmail.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://userauthorization.onrender.com/api/auth/register",
+          "protocol": "https",
+          "host": [
+            "userauthorization",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        },
+        "description": "This API is user to Sign Up New User."
+      },
+      "response": []
+    },
+    {
+      "name": "Auth API Running",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://userauthorization.onrender.com/",
+          "protocol": "https",
+          "host": [
+            "userauthorization",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            ""
+          ]
+        },
+        "description": "This API ios user to Test that api is Running Fine"
+      },
+      "response": []
+    },
+    {
+      "name": "userSignIn",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"himanshu@gmail.com\",\n  \"password\": \"123456\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://userauthorization.onrender.com/api/auth/login",
+          "protocol": "https",
+          "host": [
+            "userauthorization",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "login"
+          ]
+        },
+        "description": "This API is user to Sign IN Old User."
+      },
+      "response": [
+        {
+          "name": "userSignIn",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"himanshu@gmail.com\",\n  \"password\": \"123456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "_postman_previewlanguage": null,
+          "header": null,
+          "cookie": [],
+          "body": null
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMDZlZTY1YzFkZWNhMzQ5MjAzZWI2NiIsImVtYWlsIjoiaGltYW5zaHVAZ21haWwuY29tIiwiaWF0IjoxNzc4ODM5MjM0LCJleHAiOjE3Nzg5MjU2MzR9.XFLcOZEC9EnFtRhLt_l_MdlxHRAXWk6y5GkWn03cVLI",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://userauthorization.onrender.com/api/auth/profile",
+          "protocol": "https",
+          "host": [
+            "userauthorization",
+            "onrender",
+            "com"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "profile"
+          ]
+        },
+        "description": "In Hearder we have to pass Bearer token what will came after login .  \n  \nAuthorization: Bearer jwt_token_here"
+      },
+      "response": []
+    }
+  ]
+}
