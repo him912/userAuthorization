@@ -16,7 +16,11 @@ app.use("/api/auth", require("./routes/authRoutes"));
 
 app.use(
   cors({
-    origin: ["http://localhost:3005", "http://localhost:3000"],
+    origin: ["http://localhost:3000",
+          "http://localhost:3005",
+      "https://sunny-banoffee-55b155.netlify.app",
+    ],
+    methods: ["POST"],
     credentials: true,
   }),
 );
