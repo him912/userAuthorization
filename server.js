@@ -11,19 +11,15 @@ const app = express();
 
 app.use(express.json());
 
-// Routes
-app.use("/api/auth", require("./routes/authRoutes"));
-
 app.use(
   cors({
-    origin: ["http://localhost:3000",
-          "http://localhost:3005",
-      "https://sunny-banoffee-55b155.netlify.app",
-    ],
-    methods: ["POST"],
+    origin: "https://sunny-banoffee-55b155.netlify.app",
     credentials: true,
-  }),
+  })
 );
+
+// Routes
+app.use("/api/auth", require("./routes/authRoutes"));
 
 app.get("/", (req, res) => {
   res.send("Auth API Running");
