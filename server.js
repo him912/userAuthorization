@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://sunny-banoffee-55b155.netlify.app",
+    origin: "https://sweet-centaur-8df9e0.netlify.app",
     credentials: true,
   })
 );
